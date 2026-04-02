@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   web:
-    build: .  # 현재 폴더(.)에 있는 Dockerfile을 읽어서 이미지를 빌드해라!
+    image: mino07/my-web:latest  # 현재 폴더(.)에 있는 Dockerfile을 읽어서 이미지를 빌드해라!
     container_name: compose-web-test
     ports:
       - "8080:80"
