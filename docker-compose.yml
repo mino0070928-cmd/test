@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    container_name: compose-web-test
+    ports:
+      - "8080:80"
+    volumes:
+      - ~/my-docker-web:/usr/share/nginx/html
+      - ~/my-docker-logs:/var/log/nginx
+    restart: always
