@@ -1,10 +1,12 @@
 version: '3.8'
 services:
   web:
-    image: nginx:latest
+    build: .  # 현재 폴더(.)에 있는 Dockerfile을 읽어서 이미지를 빌드해라!
     container_name: compose-web-test
     ports:
       - "8080:80"
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html
+      # HTML 소스는 이제 이미지 안에 구워져 있으므로 볼륨 연결 삭제!
+      # 로그 파일만 우분투 본체에 남기도록 볼륨 유지
+      - /root/my-docker-logs:/var/log/nginx
     restart: always
